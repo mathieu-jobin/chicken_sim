@@ -7,4 +7,8 @@ Enable any trinkets you have equipped, and change the talents based on your buil
 
 # Known issues.
 - Trinkets don't currently share cooldowns between them.
-- Partial resists aren't modeled.
+- Partial resists aren't modeled yet
+- You can equip more than 2 trinkets.
+- No haste support.
+
+If you run into an issue or wish to contribute, please open an issue or a pull request!
