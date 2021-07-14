@@ -44,7 +44,7 @@ func main() {
 		avg /= float32(len(results))
 
 		fmt.Println(avg)
-		return nil
+		return avg
 	}))
 
 	<-make(chan bool)

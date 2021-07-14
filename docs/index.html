@@ -18,7 +18,7 @@
                     }
                 }
                 
-                MoonkinSim(
+                var result = MoonkinSim(
                     Number(document.getElementById("numfights").value),    
                     JSON.stringify({
                         SP: Number(document.getElementById("sp").value),
@@ -28,6 +28,10 @@
                     }),
                     JSON.stringify(modifiers)
                 );
+
+                console.log("js");
+                console.log(result)
+                document.getElementById("dpsresult").innerHTML = result;
             }
         </script>
     </head>
@@ -85,6 +89,8 @@
             <input type="checkbox" id="IdolOfTheMoongoddess", name="IdolOfTheMoongoddess"><br><br>
 
             <button onclick="startSim()">Sim!</button>
+            
+            <p id="dpsresult"></p>
 
         
     </body>
