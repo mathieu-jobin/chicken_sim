@@ -1,5 +1,10 @@
 # TBC moonkin dps sim
 
+The sim is still in development and has bugs.
+You can use it at https://thatcodingguy.github.io/chicken_sim/
+
+# Development
+
 To run, clone/download the repository locally.
 Install golang https://golang.org/
 
