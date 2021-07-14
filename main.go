@@ -4,8 +4,8 @@ import (
 	"fmt"
 )
 
-const NumFights = 50000 // How many fights to simulate
-const FightLength = 420 // Fight is about 7 minutes
+const NumFights = 100000 // How many fights to simulate
+const FightLength = 420  // Fight is about 7 minutes
 
 func main() {
 

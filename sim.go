@@ -340,13 +340,23 @@ func Simulate(attrs Attributes, modifiers Modifiers, fightDurationSeconds float3
 	}
 
 	spells := buildSpells(modifiers)
+
+	trinkets := []SpellID{}
+	if modifiers.SilverCrescent {
+		trinkets = append(trinkets, SpellIdentSilverCrescent)
+	}
+
+	if modifiers.ScryersBloodgem {
+		trinkets = append(trinkets, SpellIdentBloodgem)
+	}
+
 	spellPriority := []SpellID{
 		SpellIdentFaerieFire,
-		// SpellIdentSilverCrescent,
-		SpellIdentBloodgem,
-		SpellIdentMoonfire,
-		SpellIdentStarfire,
 	}
+
+	spellPriority = append(spellPriority, trinkets...)
+	spellPriority = append(spellPriority, SpellIdentMoonfire)
+	spellPriority = append(spellPriority, SpellIdentStarfire)
 
 	procs := []*Proc{}
 	if modifiers.LightningCapacitator {
