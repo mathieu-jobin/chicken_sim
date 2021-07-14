@@ -1,0 +1,91 @@
+<html>  
+    <head>
+        <meta charset="utf-8"/>
+        <script src="wasm_exec.js"></script>
+        <script>
+            const go = new Go();
+            WebAssembly.instantiateStreaming(fetch("sim.wasm"), go.importObject).then((result) => {
+                go.run(result.instance);
+            });
+
+            function startSim() {
+
+                var modifiers = {};
+                var inputs = document.getElementsByTagName('input');
+                for(var i = 0; i < inputs.length; i++) {
+                    if(inputs[i].type.toLowerCase() == 'checkbox') {
+                        modifiers[inputs[i].id] = inputs[i].checked;
+                    }
+                }
+                
+                MoonkinSim(
+                    Number(document.getElementById("numfights").value),    
+                    JSON.stringify({
+                        SP: Number(document.getElementById("sp").value),
+                        CritRating: Number(document.getElementById("cr").value),
+                        HitRating: Number(document.getElementById("hr").value),
+                        Intellect: Number(document.getElementById("int").value),
+                    }),
+                    JSON.stringify(modifiers)
+                );
+            }
+        </script>
+    </head>
+    <body>
+
+            <label for="numfights">Fights to simulate:</label>
+            <input type="number" id="numfights" name="numfights"><br><br>
+
+            <label for="sp">Spellpower:</label>
+            <input type="number" id="sp" name="sp"><br><br>
+
+            <label for="cr">Crit rating:</label>
+            <input type="number" id="cr" name="cr"><br><br>
+
+            <label for="hr">Hit rating:</label>
+            <input type="number" id="hr" name="hr"><br><br>
+
+            <label for="int">Intellect:</label>
+            <input type="number" id="int" name="int"><br><br>
+
+            <label for="BalanceOfPower">BalanceOfPower:</label>
+            <input type="checkbox" id="BalanceOfPower", name="BalanceOfPower"><br><br>
+
+            <label for="MoonkinForm">MoonkinForm:</label>
+            <input type="checkbox" id="MoonkinForm", name="MoonkinForm"><br><br>
+
+            <label for="FocusedStarlight">FocusedStarlight:</label>
+            <input type="checkbox" id="FocusedStarlight", name="FocusedStarlight"><br><br>
+
+            <label for="ImprovedMoonfire">ImprovedMoonfire:</label>
+            <input type="checkbox" id="ImprovedMoonfire", name="ImprovedMoonfire"><br><br>
+
+            <label for="Moonfury">Moonfury:</label>
+            <input type="checkbox" id="Moonfury", name="Moonfury"><br><br>
+
+            <label for="WrathOfCenarius">WrathOfCenarius:</label>
+            <input type="checkbox" id="WrathOfCenarius", name="WrathOfCenarius"><br><br>
+
+            <label for="NaturesGrace">NaturesGrace:</label>
+            <input type="checkbox" id="NaturesGrace", name="NaturesGrace"><br><br>
+
+            <label for="ScryersBloodgem">ScryersBloodgem:</label>
+            <input type="checkbox" id="ScryersBloodgem", name="ScryersBloodgem"><br><br>
+
+            <label for="SilverCrescent">ScryersBloodgem:</label>
+            <input type="checkbox" id="SilverCrescent", name="SilverCrescent"><br><br>
+
+            <label for="LightningCapacitator">LightningCapacitator:</label>
+            <input type="checkbox" id="LightningCapacitator", name="LightningCapacitator"><br><br>
+
+            <label for="ChaoticSkyfireDiamond">ChaoticSkyfireDiamond:</label>
+            <input type="checkbox" id="ChaoticSkyfireDiamond", name="ChaoticSkyfireDiamond"><br><br>
+
+            <label for="IdolOfTheMoongoddess">IdolOfTheMoongoddess:</label>
+            <input type="checkbox" id="IdolOfTheMoongoddess", name="IdolOfTheMoongoddess"><br><br>
+
+            <button onclick="startSim()">Sim!</button>
+
+        
+    </body>
+</html>  

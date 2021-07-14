@@ -1,4 +1,4 @@
-package main
+package sim
 
 type Spell struct {
 	Name string

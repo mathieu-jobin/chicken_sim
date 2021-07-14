@@ -2,24 +2,25 @@ package main
 
 import (
 	"fmt"
+	"thatcodingguy/chicken_sim/sim"
 )
 
-const NumFights = 100000 // How many fights to simulate
-const FightLength = 420  // Fight is about 7 minutes
+const NumFights = 1000  // How many fights to simulate
+const FightLength = 420 // Fight is about 7 minutes
 
 func main() {
 
 	fmt.Println("Running sim for ", NumFights, " fights of ", FightLength, " seconds")
 
-	results := []FightReport{}
+	results := []sim.FightReport{}
 	for i := 0; i < NumFights; i++ {
-		result := Simulate(Attributes{
+		result := sim.Simulate(sim.Attributes{
 			SP:          1065,
 			HasteRating: 0,
 			CritRating:  228,
 			HitRating:   130,
 			Intellect:   347,
-		}, Modifiers{
+		}, sim.Modifiers{
 			// Talents
 			BalanceOfPower:   true,
 			MoonkinForm:      true,
@@ -50,4 +51,5 @@ func main() {
 	avg /= float32(len(results))
 
 	fmt.Println(avg)
+
 }

@@ -1,4 +1,4 @@
-package main
+package sim
 
 type Proc struct {
 	ProcChance   float32
