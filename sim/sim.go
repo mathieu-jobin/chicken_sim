@@ -37,6 +37,10 @@ type Modifiers struct {
 
 	// Idols
 	IdolOfTheMoongoddess bool
+
+	// Debuffs
+	CurseOfElements bool
+	Misery          bool
 }
 
 const HitRatingPerPercent = 12.6

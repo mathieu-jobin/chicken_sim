@@ -11,6 +11,11 @@ Run with
 go run .
 ```
 
+To run the webapp locally, do :
+```
+./web.sh && go run devserver/main.go 
+```
+
 # Known issues.
 - Trinkets don't currently share cooldowns between them.
 - Partial resists aren't modeled yet

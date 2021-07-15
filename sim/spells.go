@@ -122,6 +122,22 @@ func buildSpells(modifiers Modifiers) []Spell {
 		moonfire.Damage.AvgDamage *= 1.1
 	}
 
+	if modifiers.CurseOfElements {
+		starfire.Damage.AvgDamage *= 1.1
+		starfire.Damage.Coefficient *= 1.1
+
+		moonfire.Damage.AvgDamage *= 1.1
+		moonfire.Damage.Coefficient *= 1.1
+	}
+
+	if modifiers.Misery {
+		starfire.Damage.AvgDamage *= 1.05
+		starfire.Damage.Coefficient *= 1.05
+
+		moonfire.Damage.AvgDamage *= 1.05
+		moonfire.Damage.Coefficient *= 1.05
+	}
+
 	// trinkets are modelled as spells.
 	bloodgem := Spell{
 		Name:         "Scryers Bloodgem",
